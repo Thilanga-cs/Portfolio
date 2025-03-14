@@ -1,0 +1,795 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+html {
+    font-size: 60%;
+    overflow-x: hidden;
+}
+/* :root {
+    --bg-color: #252ceb
+    ;
+    --second-bg-color: #2228d4
+    ;
+    --text-color: white;
+    --main-color: #327cd1;
+} */
+
+:root {
+    --bg-color: #03041f
+    ;
+    --second-bg-color: #03041f
+    ;
+    --text-color: white;
+    --main-color: #aeff00;
+}
+
+body {
+    background-color: #03041f;
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 4rem 12rem;
+    background-color: #03041f;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 1px solid #42d100;
+}
+
+/* Home Section */
+#menu-icon {
+    font-size: 3.6rem;
+    color:white;
+    display: none;
+    cursor: pointer;
+}
+
+.bx-x {
+    transform: rotate(90deg); /* Example effect */
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white; /* Simulate cursor effect */
+}
+
+.logo:hover {
+    transform: scale(1.1);
+}
+
+
+span {
+    color: var(--main-color);
+}
+
+.home-content h1,
+.home-content h3,
+.home-content p {
+    color: white;
+}
+
+.navbar a {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 4rem;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    border-bottom: 3px solid var(--text-color);
+    color: var(--main-color) ;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .header {
+        padding: 2rem 3rem;
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        display: none;
+        flex-direction: column;
+        background-color: var(--second-bg-color);
+        position: absolute;
+        top: 5rem;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        padding: 2rem 0;
+    }
+
+    .navbar a {
+        margin-left: 0;
+        margin-bottom: 2rem;
+        display: block;
+    }
+
+    .navbar.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .home {
+        flex-direction: column;
+        gap: 5rem;
+        text-align: center;
+    }
+
+    .home-content {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+section {
+    min-height: 100vh;
+    padding: 10rem 12%;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15rem;
+    margin-left: -10rem;
+}
+
+.home-content h1 {
+    font-size: 7rem;
+    font-weight: 800;
+    margin-top: 1.5rem;
+    line-height: 1;
+    transition: 0.5s ease;; /* Smooth transition for transform */
+}
+
+.home-content h1:hover {
+    transform: scale(1.05);
+}
+
+
+.home-content h3 {
+    font-size: 4rem;
+    margin: 1rem 0;
+    transition: transform 0.5s ease; 
+}
+.home-content h3:hover {
+    transform: scale(1.05);
+}
+
+.home-content p {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.5;
+    transition: transform 0.5s ease; 
+}
+.home-content p:hover {
+    transform: scale(1.05);
+}
+
+
+/* Add keyframes for animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply animation to the role class */
+/* .home-content .role {
+    animation: fadeIn 4s ease-out forwards; 
+    opacity: 0; 
+} */
+
+
+.home-img img {
+    width: 20vw;
+    border-radius: 45%;
+    box-shadow: 0 0 10px var(--main-color);
+    transition: box-shadow 0.4s ease-in-out, transform 0.4s ease-in-out;
+}
+
+.home-img img:hover {
+    box-shadow: 0 0 0 var(--main-color), 0 0 0 var(--main-color), 0 0 50px var(--main-color);
+    transform: scale(1.05);
+}
+
+
+
+.social-icon a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    padding: 1rem;
+    background: transparent;
+    border: 2px solid var(--text-color);
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 0.5rem;
+    transition: 0.3s ease;
+}
+
+.social-icon a:hover {
+    color: black !important;
+    background: var(--main-color);
+    transform: scale(1.2) translateY(-5px);
+    box-shadow: 0 0 0 var(--main-color);
+}
+
+.btn-group {
+    display: flex;
+    gap: 1.4rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: var(--main-color);
+    box-shadow: 0 0 0 var(--main-color);
+    border-radius: 3rem;
+    font-size: 1.8rem;
+    color: rgb(14, 0, 0);
+    border: 2px solid transparent;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 var(--main-color), 0 0 0 var(--main-color);
+}
+
+.btn-group a:nth-of-type(1) {
+    background-color: #03041f;
+    color: var(--main-color);
+    border: 2px solid var(--text-color);
+}
+
+.btn-group a:nth-of-type(1):hover {
+    box-shadow: 0 0 0 var(--main-color);
+    background-color: var(--main-color);
+    color: #03041f;
+}
+
+.btn-group a:nth-of-type(2) {
+    background-color: #03041f;
+    color: var(--main-color);
+    border: 2px solid var(--text-color);
+}
+
+.btn-group a:nth-of-type(2):hover {
+    box-shadow: 0 0 0 var(--main-color);
+    background-color: var(--main-color);
+    color: black;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    background-color: var(--second-bg-color);
+}
+
+.about-img img {
+    width: 30vw;
+    border-radius: 30%;
+    box-shadow: 0 0  10px var(--main-color);
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.about-img img:hover {
+    box-shadow: 0 0 10px var(--main-color), 0 0 0px var(--main-color), 0 0 50px var(--main-color);
+}
+
+.about-content h2 {
+    font-size: 8rem;
+    text-align: left;
+    color: aliceblue; /* Added semicolon */
+    transition: transform 0.5s ease, color 0.5s ease; /* Separate transitions for transform and color */
+}
+
+.about-content h2:hover {
+    transform: scale(1.05); /* Example of transformation on hover */
+}
+
+
+/* .about-content h2 a {
+    color: white;
+    text-decoration: none;
+} */
+/* .about-content h2 a:hover {
+    transform: scale(1.05);
+} */
+
+.about-content p {
+    display: block;
+    color: #ffffff;
+    font-size: 2rem;
+    text-align: left;
+    margin-bottom: 4rem;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+.about-content p:hover {
+    transform: scale(1.05);
+}
+
+.about-content .btn {
+    margin-top: 3rem;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    border-radius: 10px;
+}
+
+.heading {
+    text-align: center;
+    font-size: 7rem;
+    margin: 5rem 0;
+}
+
+.services {
+    background-color: var(--second-bg-color);
+    color: rgb(102, 255, 0);
+    padding: 10rem;
+}
+
+.services h2 {
+    color: var(--text-color);
+    font-size: 5rem;
+    text-align: center;
+    transition: transform 0.5s ease; 
+}
+.services h2:hover {
+    transform: scale(1.1);
+}
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.service-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color); /* Keep the original background color */
+    height: 500px;
+    border: 0.5px solid var(--main-color); /* Change the border color to green */
+    border-radius: 50px;
+    padding: 4rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-box h4 {
+    color: #aeff00; /* Change the color of h4 to green */
+}
+
+
+
+.service-box:hover {
+    transform: scale(1.05); /* Slightly enlarge the box */
+    box-shadow: 0 4px 0px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    border: 1px solid var(--bg-color); /* Maintain the original border */
+}
+
+.service-info{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+}
+.service-info i{
+    font-size : 5rem;
+}
+.service-info h4{
+    font-size: 4rem;
+    margin: 2rem 0;
+    font-weight: 800;
+}
+.service-info p{
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.7;
+
+}
+
+/* Contact Section */
+ .contact {
+    background-color: var(--second-bg-color);
+    padding: 8rem 0;
+    transition: transform 0.5s ease; 
+} 
+
+.contact-text, .me-text {
+    color: rgb(255, 255, 255);  /* Default color for both */
+    transition: transform 0.5s ease;  /* Transition for smooth animation */
+}
+
+.me-text {
+    color: var(--main-color);  /* Overrides .contact-text for .me-text */
+}
+
+/* Hover effect */
+.contact-text:hover, .me-text:hover {
+    transform: scale(1.1);  /* Enlarge the element on hover */
+}
+
+
+
+ 
+
+/* Contact Form */
+.contact form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+    margin: 5rem auto;
+    text-align: center;
+    width: 100%;
+    max-width: 600px; 
+}
+
+/* Input Fields */
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.9rem;
+    color: #949494;
+    background-color: #03041f;
+    border-radius: 2rem;
+    border: 1px solid var(--main-color);
+    margin: 1.5rem 0;
+    resize: none;
+}
+
+/* Input Groups */
+.input-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1; /* Makes input-box flexible */
+    min-width: 45%; /* Ensures proper sizing */
+}
+
+/* Fix for input-group2 (textarea container) */
+.input-group2 {
+    width: 100%;
+}
+
+.input-group2 textarea {
+    width: 100%;
+    height: 300px;
+}
+
+/* Submit Button */
+.btn {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--hover-color);
+}
+
+
+
+/* Style for submit button */
+.btn {
+    background-color: var(--main-color);
+    color: rgb(0, 0, 0); /* Default text color */
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: 0.4s ease; /* Transition for background-color and color */
+}
+
+.btn:hover {
+    background-color: var(--hover-color); /* Change background on hover */
+    color: white; /* Change text color to white when hovered */
+}
+
+/* Footer Section */
+.footer {
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    height: 10%;
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* Social Media Icons */
+.footer .social-icon {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 20px;
+}
+
+.footer .social-icon a {
+    font-size: 2rem;
+    color: white;
+    transition: 0.3s ease-in-out;
+    padding: 10px;
+}
+
+.footer .social-icon a:hover {
+    color: var(--main-color);
+    transform: scale(1.2);
+}
+
+/* Navigation Links */
+.footer ul {
+    text-align: center;
+    font-size: 1.8rem;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.footer ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer ul li a {
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    border-bottom: 3px solid var(--main-color);
+}
+
+/* Copyright Text */
+.footer .copyright {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.4rem;
+    opacity: 0.8; /* Slight transparency for a modern look */
+}
+/* !responsiveness-------------------------------------------------------- */
+@media (max-width: 1024px) {
+    #menu-icon {
+        display: block;
+    }
+    .navbar { /* Fixed class name from .nevbar to .navbar */
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3rem;
+        background-color: rgba(0, 0, 0, 0.8);
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        border-bottom-left-radius: 2rem;
+    }
+    
+    .navbar a { /* Fixed .navdar a */
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+        color: white; /* Added missing semicolon */
+    }
+    .navbar.active {
+        display: block;
+    }
+    .home {
+        flex-direction: column-reverse;
+        margin: 5rem 0;
+        gap: 5rem;
+    }
+    .home-content {
+        align-items: center;
+        text-align: center;
+    }
+    .home-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .about {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+    .about h2 {
+        text-align: center;
+        margin: 2rem 0;
+    }
+    .about img {
+        width: 52vw;
+    }
+    .contact form {
+        flex-direction: column;
+    }
+}
+/*! ----------------------time line----------------------------- */
+.timeline-title {
+    text-align: left;  /* Align the title to the left */
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--main-color);
+    padding: 50px 0; 
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+
+
+.timeline-items {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Make the line start from the first item */
+/* Adjust the line to start from the dot */
+.timeline-items::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--main-color);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 25px;  /* Start the line right below the dot */
+    height: 100%;  /* Line should cover the remaining height of the container */
+}
+
+
+.timeline-item {
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+}
+
+/* .timeline-item:last-child {
+    margin-bottom: 0;
+} */
+
+.timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 30px);
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    padding-left: calc(50% + 30px);
+    text-align: left;
+}
+
+.timeline-dot {
+    height: 25px;  /* Increased size of the dot */
+    width: 25px;  /* Increased size of the dot */
+    background-color: var(--text-color);  /* Ensure the dot has a color */
+    border: 5px solid var(--second-bg-color);  /* Reduced the border size */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10px;  /* Position the dot */
+    border-radius: 50%;  /* Ensures it's circular */
+    transition: box-shadow 0.3s ease-in-out;  /* Smooth transition for shadow */
+}
+
+/* Optional: Add shadow effect to make the dot stand out more */
+.timeline-dot:hover {
+    box-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);  /* Adds glowing effect */
+}
+
+
+.timeline-dot:hover {
+    box-shadow: 0 0 10px var(--main-color), 0 0 20px var(--main-color);
+}
+
+
+.timeline-date {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--main-color);
+    margin: 6px 0 15px;
+}
+
+.timeline-content {
+    background-color: var(--second-bg-color);
+    border: 2px solid var(--main-color);
+    padding: 20px;
+    border-radius: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+}
+
+.timeline-content h3 {
+    font-size: 22px;
+    color: var(--main-color);
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 22px;
+}
+
+.timeline-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
